@@ -32,8 +32,6 @@ public class MyFirstATest {
         Selenide.open("http://automationpractice.com/index.php");
     }
 
-    public static void main(String[] args) {
-        System.out.println();
-    }
+
 
 }
