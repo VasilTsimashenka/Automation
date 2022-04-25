@@ -31,7 +31,6 @@ public class MyFirstATest {
 
     @Test
     public void openPage4() {
-//        System.setProperty("selenide.browser", "firefox");
         Configuration.browser = FIREFOX;
         Selenide.open("http://automationpractice.com/index.php");
     }
