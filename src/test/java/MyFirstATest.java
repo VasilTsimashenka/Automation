@@ -1,8 +1,11 @@
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import static com.codeborne.selenide.Browsers.FIREFOX;
 
 public class MyFirstATest {
     @Test
@@ -28,10 +31,10 @@ public class MyFirstATest {
 
     @Test
     public void openPage4() {
-        System.setProperty("selenide.browser", "firefox");
+//        System.setProperty("selenide.browser", "firefox");
+        Configuration.browser = FIREFOX;
         Selenide.open("http://automationpractice.com/index.php");
     }
-
 
 
 }
