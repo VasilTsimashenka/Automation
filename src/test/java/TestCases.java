@@ -71,16 +71,9 @@ public class TestCases {
         $("#cart_navigation > button").click();
         $("#contact-link > a").click();
         $("#id_contact").sendKeys("Customer service");
-
         $("div.clearfix > div.col-xs-12.col-md-3 > div:nth-child(6) > div").click();
         $("div:nth-child(6) > div > select > option:nth-child(2)").click();
-
         $("#message").sendKeys("I have a problem with my order. Could you help me?");
-
         $("#submitMessage").click();
-        sleep(4000);
-
-
-
     }
 }
