@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCases {
     @Test
@@ -78,5 +79,34 @@ public class TestCases {
         $("select[name=\"id_product\"][id=\"" + orderId + "_order_products\"]").selectOption(1);
         $("#message").sendKeys("I have a problem with my order. Could you help me?");
         $("#submitMessage").click();
+    }
+
+    @Test
+    public void testcase3() {
+        Selenide.open("http://automationpractice.com/index.php");
+        $(".login").click();
+        $("#email").sendKeys("tests891@gmail.com");
+        $("#passwd").sendKeys("12345");
+        $("#SubmitLogin").click();
+        $("#block_top_menu > ul > li:nth-child(3) > a").click();
+        $("div > a.product_img_link > img").hover();
+        $(".button.lnk_view.btn.btn-default").click();
+        $("#product_comments_block_extra > ul > li > a").click();
+        $("#criterions_list > li > div.star_content > div:nth-child(7) > a").click();
+        $("#comment_title").sendKeys("High quality product");
+        $("#content").sendKeys("Faded short sleeve t-shirt with high neckline. Soft and " +
+                "stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!");
+        $("#submitNewMessage").click();
+        $("#id_new_comment_form").should(Condition.disappear);
+
+        assertEquals(
+                "New comment\n" +
+                        "Your comment has been added and will be available once approved by a moderator\n" +
+                        "\n" +
+                        "OK",
+                $(".fancybox-inner").getText());
+        $(".fancybox-opened div > div > div > p.submit > button").click();
+
+
     }
 }
