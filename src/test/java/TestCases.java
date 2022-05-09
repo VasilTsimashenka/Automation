@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCases {
     @Test
-    public void testCase1() {
+    public void orderPaymentOfGoods() {
         Selenide.open("http://automationpractice.com/index.php");
         $(".login").click();
         $("#email").sendKeys("tests891@gmail.com");
@@ -30,7 +30,7 @@ public class TestCases {
     }
 
     @Test
-    public void testcase2() {
+    public void sendEmailToCustomerService() {
         Selenide.open("http://automationpractice.com/index.php");
         $(".login").click();
         $("#email_create").sendKeys(RandomStringUtils.randomAlphabetic(5) + "@gmail.com");
@@ -82,7 +82,7 @@ public class TestCases {
     }
 
     @Test
-    public void testcase3() {
+    public void writeReview() {
         Selenide.open("http://automationpractice.com/index.php");
         $(".login").click();
         $("#email").sendKeys("tests891@gmail.com");
@@ -106,6 +106,41 @@ public class TestCases {
                         "OK",
                 $(".fancybox-inner").getText());
         $(".fancybox-opened div > div > div > p.submit > button").click();
+
+    }
+
+    @Test
+    public void addBlouseToWishlist() {
+        Selenide.open("http://automationpractice.com/index.php");
+        $(".login").click();
+        $("#email").sendKeys("tests891@gmail.com");
+        $("#passwd").sendKeys("12345");
+        $("#SubmitLogin").click();
+        $("#block_top_menu > ul > li:nth-child(1) > a").hover();
+        $("#block_top_menu > ul > li:nth-child(1) > ul > li:nth-child(1) > ul > li:nth-child(2) > a").click();
+        $("div.right-block > h5 > a").hover();
+        $("a.button.lnk_view.btn.btn-default").click();
+        $("#wishlist_button").click();
+        $(".fancybox-overlay-fixed > div > div > a").click();
+        $("nav > div:nth-child(1) > a").click();
+        $(".icon-heart").click();
+        $("td:nth-child(1) > a").click();
+        $(".wishlist_delete > a").click();
+
+    }
+
+    @Test
+    public void checkColorSelection () {
+        Selenide.open("http://automationpractice.com/index.php");
+        $("#block_top_menu > ul > li:nth-child(2) > a").hover();
+        $("#block_top_menu > ul > li:nth-child(2) > ul > li:nth-child(3) > a").click();
+        $(".last-mobile-line > div > div.left-block > div > a.product_img_link").hover();
+        $(".first-item-of-mobile-line.last-mobile-line > div > div.right-block > div." +
+                "button-container > a.button.lnk_view.btn.btn-default").click();
+        $("#color_11").click();
+        $("#color_13").click();
+        $("#color_14").click();
+        $("#color_16").click();
 
 
     }
