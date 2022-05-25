@@ -1,6 +1,6 @@
 package tests;
 
-import base.BaseTest;
+import  base.BaseTest;
 import com.codeborne.selenide.Selenide;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.jupiter.api.Assertions;
@@ -21,8 +21,6 @@ import static service.Proceed_Checkout.proceedCheckoutPrintedDress;
 import static utils.CreateRandomEmail.mailRandom;
 
 public class TestCases extends BaseTest {
-    MainPage mainPage = new MainPage();
-    Proceed_Checkout proceedCheckout = new Proceed_Checkout();
 
 
     @Test

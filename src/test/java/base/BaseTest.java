@@ -6,22 +6,28 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import model.config.TestConfig;
+import utils.TestConfigSettings;
+
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.Browsers.CHROME;
-import static com.codeborne.selenide.Browsers.FIREFOX;
+
+
 
 public class BaseTest {
+    public static final TestConfig CONFIG = TestConfigSettings.getInstance().getTestConfig();
     @BeforeAll
     public static void setUp() {
-        Configuration.baseUrl = "http://automationpractice.com/index.php";
-        Configuration.timeout = 5000;
-        Configuration.browser = "CHROME";
-        Configuration.browserSize = "1366x768";
-        Configuration.headless = false;
-        Configuration.savePageSource = true;
+        Configuration.baseUrl = CONFIG.getBaseUrl();
+        Configuration.timeout = CONFIG.getTimeout();
+        Configuration.browserVersion = CONFIG.getBrowserVersion();
+        Configuration.browser = CONFIG.getBrowser();
+        Configuration.browserSize = CONFIG.getBrowserSize();
+        Configuration.headless = CONFIG.getHeadless();
+        Configuration.savePageSource = CONFIG.getSelenideSavePageSource();
         final DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", CONFIG.getEnabledVnc());
         Configuration.fastSetValue = true;
         Configuration.browserCapabilities = capabilities;
     }

@@ -18,7 +18,7 @@ public class MainPage {
     static SelenideElement orderReference = $(".col-md-3 > div:nth-child(6) > div > select");
     static SelenideElement selectProductField = $("div:nth-child(6) > div > select > option:nth-child(2)");
     static SelenideElement orderIdContactUsField = $("div.selector [name=\"id_order\"");
-    static SelenideElement selectOrder = $("select[name=\"id_product\"][id=\"" + orderIdContactUsField + "_order_products\"]");
+    static String selectOrder = "select[name=\"id_product\"][id=\"%s_order_products\"]";
     static SelenideElement messageFieldContactUs = $("#message");
     static SelenideElement submitBtnContactUs = $("#submitMessage");
 
@@ -43,8 +43,7 @@ public class MainPage {
         subjectHeadingField.sendKeys("Customer service");
         orderReference.click();
         selectProductField.click();
-        orderIdContactUsField.getValue();
-        selectOrder.selectOption(1);
+        $(String.format(selectOrder, orderIdContactUsField.getValue())).selectOption(1);
         messageFieldContactUs.sendKeys("I have a problem with my order. Could you help me?");
         submitBtnContactUs.click();
 
