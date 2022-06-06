@@ -29,9 +29,6 @@ public class TestConfig {
     @JsonProperty("selenium_vnc")
     private Boolean enabledVnc;
 
-    @JsonProperty("selenium_start_maximized")
-    private Boolean startMaximized;
-
     @JsonProperty("selenide_screenshots")
     private Boolean selenideScreenshots;
 

@@ -7,6 +7,5 @@
   "selenide_save_page_source": "false",
   "selenium_vnc": "true",
   "selenide_screenshots" : "true",
-  "selenium_start_maximized": "true",
   "selenium_browser_size" : "1366x768"
 }

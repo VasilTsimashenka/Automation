@@ -1,15 +1,12 @@
 package tests;
 
-import  base.BaseTest;
+import base.BaseTest;
 import com.codeborne.selenide.Selenide;
-import org.apache.commons.lang.RandomStringUtils;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.CreateAccountPage;
-import pages.MainPage;
-import pages.SignInPage;
-import service.Proceed_Checkout;
+import enums.Feature;
+import service.ui.ScreenshotService;
+
 
 import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Selenide.*;
@@ -18,6 +15,7 @@ import static pages.CreateAccountPage.createAccount;
 import static pages.MainPage.*;
 import static service.Proceed_Checkout.clickConfirmOrderPaymentPageBtn;
 import static service.Proceed_Checkout.proceedCheckoutPrintedDress;
+import static service.ui.ScreenshotService.uiExecutor;
 import static utils.CreateRandomEmail.mailRandom;
 
 public class TestCases extends BaseTest {
@@ -25,8 +23,11 @@ public class TestCases extends BaseTest {
 
     @Test
     public void orderPaymentOfGoods() {
-        open("/");
+        open("http://automationpractice.com/");
+//        ScreenshotService.uiExecutor(Feature.EXAMPLE);
+//        uiExecutor(Feature.EXAMPLE);
         $(".login").click();
+//        uiExecutor(Feature.EXAMPLE_2);
         $("#email").sendKeys("tests891@gmail.com");
         $("#passwd").sendKeys("12345");
         $("#SubmitLogin").click();
@@ -48,12 +49,8 @@ public class TestCases extends BaseTest {
     @Test
     public void sendEmailToCustomerService() {
 
-
-//        MainPage.clickSignInButton();
-//        SignInPage.loginAs("", "");
-//        CreateAccountPage.createAccount("", "", "");
-//        Assertions.assertEquals();
         open("/");
+//        uiExecutor(Feature.EXAMPLE);
         clickSignInButton();
         mailRandom(5);
         createAccount("Vasil", "Tim", "12345");
@@ -63,10 +60,7 @@ public class TestCases extends BaseTest {
         clickConfirmOrderPaymentPageBtn();
         customerServiceContactUsPage();
 
-//        $("#contact-link > a").click();
-//        $("#id_contact").sendKeys("Customer service");
-//        $(".col-md-3 > div:nth-child(6) > div > select").click();
-//        $("div:nth-child(6) > div > select > option:nth-child(2)").click();
+
 //        String orderId = $("div.selector [name=\"id_order\"").getValue();
 //        $("select[name=\"id_product\"][id=\"" + orderId + "_order_products\"]").selectOption(1);
 //        $("#message").sendKeys("I have a problem with my order. Could you help me?");
