@@ -29,7 +29,7 @@ public class BaseTest {
     private static final String ALLURE = "Allure";
     public static final TestConfig CONFIG = TestConfigSettings.getInstance().getTestConfig();
     @BeforeAll
-    public static void setUp() {
+    public static void setUp()  {
         Configuration.baseUrl = CONFIG.getBaseUrl();
         Configuration.timeout = CONFIG.getTimeout();
         Configuration.browserVersion = CONFIG.getBrowserVersion();
