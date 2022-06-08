@@ -20,7 +20,6 @@ public class Proceed_Checkout {
         termsOfServiceShippingPage.click();
         shippingPage.click();
         payByBankPaymentPage.click();
-
     }
 
     public static void clickConfirmOrderPaymentPageBtn() {

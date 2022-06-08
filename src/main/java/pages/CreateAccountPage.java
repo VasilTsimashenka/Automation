@@ -30,32 +30,6 @@ public class CreateAccountPage {
     static SelenideElement submitCreateAccountBtn = $("#submitAccount");
 
 
-//    $("#uniform-id_gender1").click();
-//    $("#customer_firstname").sendKeys("Vasil");
-//    $("#customer_lastname").sendKeys("Tim");
-//    $("#passwd").sendKeys("12345");
-//    $("#uniform-days").click();
-//    $("#days").sendKeys("1");
-//    $("#uniform-months").click();
-//    $("#months > option:nth-child(2)").click();
-//    $("#uniform-years").click();
-//    $("#years").sendKeys("2020");
-//    $("#uniform-newsletter").click();
-//    $("#uniform-optin").click();
-//    $("#company").sendKeys("Kaseya");
-//    $("#address1").sendKeys("701 Brickell Avenue");
-//    $("#city").sendKeys("Miami");
-//    $("#uniform-id_state").click();
-//    $("#id_state").sendKeys("Florida");
-//    $("#postcode").sendKeys("33131");
-//    $("#uniform-id_country").click();
-//    $("#id_country").sendKeys("United States)");
-//    $("#other").sendKeys("Additional information");
-//    $("#phone").sendKeys("+375292929297");
-//    $("#phone_mobile").sendKeys("+375333333333");
-//    $("#alias").sendKeys("18, Baker street");
-//    $("#submitAccount").click();
-
     public static void createAccount(String name, String lastName, String passwd) {
 
         genderMan.click();

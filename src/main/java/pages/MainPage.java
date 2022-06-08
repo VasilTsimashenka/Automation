@@ -21,9 +21,9 @@ public class MainPage {
     static String selectOrder = "select[name=\"id_product\"][id=\"%s_order_products\"]";
     static SelenideElement messageFieldContactUs = $("#message");
     static SelenideElement submitBtnContactUs = $("#submitMessage");
-
-
-
+    static SelenideElement selectT_Shirts = $("li:nth-child(3) > a[title='T-shirts']");
+    static SelenideElement fadedShortSleeveT_shirts = $(".product_img_link > img");
+    static SelenideElement onMoreBtn = $(".button.lnk_view.btn.btn-default");
 
     public static void clickSignInButton() {
         signInButton.click();
@@ -33,6 +33,7 @@ public class MainPage {
         hoverDresses.hover();
         selectCasualDressesFromDresses.click();
     }
+
     public static void addCartPrintedDress() {
         printedDressCasualDresses.hover();
         addCartBtn.click();
@@ -46,10 +47,14 @@ public class MainPage {
         $(String.format(selectOrder, orderIdContactUsField.getValue())).selectOption(1);
         messageFieldContactUs.sendKeys("I have a problem with my order. Could you help me?");
         submitBtnContactUs.click();
-
-
     }
 
+    public static void selectT_Shirts() {
+        selectT_Shirts.click();
+    }
 
-
+    public static void fadedShortSleeveT_shirtsAndClickOnMoreBtn() {
+        fadedShortSleeveT_shirts.hover();
+        onMoreBtn.click();
+    }
 }

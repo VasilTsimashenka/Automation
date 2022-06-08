@@ -22,7 +22,6 @@ import static utils.CreateRandomEmail.mailRandom;
 
 public class TestCases extends BaseTest {
 
-
     @Test
     @Owner("Tsimashenka Vasil")
     public void orderPaymentOfGoods() {
@@ -35,7 +34,7 @@ public class TestCases extends BaseTest {
         open("/");
 //        ScreenshotService.uiExecutor(Feature.EXAMPLE);
 //        uiExecutor(Feature.EXAMPLE);
-        loginAs("tests891@gmail.com","12345");
+        loginAs("tests891@gmail.com", "12345");
         selectCasualDresses();
         addCartPrintedDress();
         proceedCheckoutPrintedDress();
@@ -47,10 +46,8 @@ public class TestCases extends BaseTest {
 //                        "\n" +
 //                        "OK",
 //                $(".box").getText());
-
 ////        uiExecutor(Feature.EXAMPLE_2);
     }
-
 
     @Test
     public void sendEmailToCustomerService() {
@@ -66,34 +63,33 @@ public class TestCases extends BaseTest {
         clickConfirmOrderPaymentPageBtn();
         customerServiceContactUsPage();
         Assertions.assertTrue(Selenide.$(".alert.alert-success").getText().contains(expectedMessage));
-
     }
 
     @Test
     public void writeReview() {
         open("/");
-        $(".login").click();
-        $("#email").sendKeys("tests891@gmail.com");
-        $("#passwd").sendKeys("12345");
-        $("#SubmitLogin").click();
-        $("#block_top_menu > ul > li:nth-child(3) > a").click();
-        $("div > a.product_img_link > img").hover();
-        $(".button.lnk_view.btn.btn-default").click();
-        $("#product_comments_block_extra > ul > li > a").click();
-        $("#criterions_list > li > div.star_content > div:nth-child(7) > a").click();
-        $("#comment_title").sendKeys("High quality product");
-        $("#content").sendKeys("Faded short sleeve t-shirt with high neckline. Soft and " +
-                "stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!");
-        $("#submitNewMessage").click();
-        $("#id_new_comment_form").should(disappear);
+        loginAs("tests891@gmail.com", "12345");
+        selectT_Shirts();
+        fadedShortSleeveT_shirtsAndClickOnMoreBtn();
 
-        assertEquals(
-                "New comment\n" +
-                        "Your comment has been added and will be available once approved by a moderator\n" +
-                        "\n" +
-                        "OK",
-                $(".fancybox-inner").getText());
-        $(".fancybox-opened div > div > div > p.submit > button").click();
+
+//        $("div > a.product_img_link > img").hover();
+//        $(".button.lnk_view.btn.btn-default").click();
+//        $("#product_comments_block_extra > ul > li > a").click();
+//        $("#criterions_list > li > div.star_content > div:nth-child(7) > a").click();
+//        $("#comment_title").sendKeys("High quality product");
+//        $("#content").sendKeys("Faded short sleeve t-shirt with high neckline. Soft and " +
+//                "stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!");
+//        $("#submitNewMessage").click();
+//        $("#id_new_comment_form").should(disappear);
+//
+//        assertEquals(
+//                "New comment\n" +
+//                        "Your comment has been added and will be available once approved by a moderator\n" +
+//                        "\n" +
+//                        "OK",
+//                $(".fancybox-inner").getText());
+//        $(".fancybox-opened div > div > div > p.submit > button").click();
 
     }
 

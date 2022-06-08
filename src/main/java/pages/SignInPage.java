@@ -16,8 +16,4 @@ public class SignInPage {
         password.sendKeys(passwd);
         submitBtn.click();
     }
-
-
-
-
 }
