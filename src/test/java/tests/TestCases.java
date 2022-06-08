@@ -40,12 +40,6 @@ public class TestCases extends BaseTest {
         proceedCheckoutPrintedDress();
         clickConfirmOrderPaymentPageBtn();
         Assertions.assertTrue(Selenide.$(".box").getText().contains(expectedMessage));
-//        assertEquals(
-//                "New comment\n" +
-//                        "Your comment has been added and will be available once approved by a moderator\n" +
-//                        "\n" +
-//                        "OK",
-//                $(".box").getText());
 ////        uiExecutor(Feature.EXAMPLE_2);
     }
 
@@ -71,25 +65,20 @@ public class TestCases extends BaseTest {
         loginAs("tests891@gmail.com", "12345");
         selectT_Shirts();
         fadedShortSleeveT_shirtsAndClickOnMoreBtn();
-
-
-//        $("div > a.product_img_link > img").hover();
-//        $(".button.lnk_view.btn.btn-default").click();
-//        $("#product_comments_block_extra > ul > li > a").click();
-//        $("#criterions_list > li > div.star_content > div:nth-child(7) > a").click();
-//        $("#comment_title").sendKeys("High quality product");
-//        $("#content").sendKeys("Faded short sleeve t-shirt with high neckline. Soft and " +
-//                "stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!");
-//        $("#submitNewMessage").click();
+        clickFieldWriteReview();
+        chooseFiveStar();
+        sendTextFieldTitleWriteReview("High quality product");
+        sendTextFieldCommentWriteReviewAndSendClick("Faded short sleeve t-shirt with high neckline. Soft and stretchy " +
+                "material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!");
+        windowClosingWaitDisappear();
 //        $("#id_new_comment_form").should(disappear);
-//
-//        assertEquals(
-//                "New comment\n" +
-//                        "Your comment has been added and will be available once approved by a moderator\n" +
-//                        "\n" +
-//                        "OK",
-//                $(".fancybox-inner").getText());
-//        $(".fancybox-opened div > div > div > p.submit > button").click();
+        assertEquals(
+                "New comment\n" +
+                        "Your comment has been added and will be available once approved by a moderator\n" +
+                        "\n" +
+                        "OK",
+                $(".fancybox-inner").getText());
+        fieldNewCommentOkBtnClick();
 
     }
 

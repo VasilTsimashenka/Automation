@@ -2,7 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-
+import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage {
@@ -24,6 +24,13 @@ public class MainPage {
     static SelenideElement selectT_Shirts = $("li:nth-child(3) > a[title='T-shirts']");
     static SelenideElement fadedShortSleeveT_shirts = $(".product_img_link > img");
     static SelenideElement onMoreBtn = $(".button.lnk_view.btn.btn-default");
+    static SelenideElement fieldWriteReview = $("#product_comments_block_extra > ul > li > a");
+    static SelenideElement fieldFiveStarWriteReview = $(".star_content > div:nth-child(7) > a");
+    static SelenideElement fieldTitleWriteReview = $("#comment_title");
+    static SelenideElement fieldCommentWriteReview = $("#content");
+    static SelenideElement sendBtn = $("#submitNewMessage");
+    static SelenideElement fieldNewCommentOkBtn = $(".fancybox-opened > div > div > div > p.submit > button");
+    static SelenideElement windowClosingWait = $("#id_new_comment_form");
 
     public static void clickSignInButton() {
         signInButton.click();
@@ -56,5 +63,30 @@ public class MainPage {
     public static void fadedShortSleeveT_shirtsAndClickOnMoreBtn() {
         fadedShortSleeveT_shirts.hover();
         onMoreBtn.click();
+    }
+
+    public static void clickFieldWriteReview() {
+        fieldWriteReview.click();
+    }
+
+    public static void chooseFiveStar() {
+        fieldFiveStarWriteReview.click();
+    }
+
+    public static void sendTextFieldTitleWriteReview(String text) {
+        fieldTitleWriteReview.sendKeys(text);
+    }
+
+    public static void sendTextFieldCommentWriteReviewAndSendClick(String text) {
+        fieldCommentWriteReview.sendKeys(text);
+        sendBtn.click();
+    }
+
+    public static void fieldNewCommentOkBtnClick() {
+        fieldNewCommentOkBtn.click();
+    }
+
+    public static void windowClosingWaitDisappear() {
+        windowClosingWait.should(disappear);
     }
 }
