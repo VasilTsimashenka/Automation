@@ -71,7 +71,6 @@ public class TestCases extends BaseTest {
         sendTextFieldCommentWriteReviewAndSendClick("Faded short sleeve t-shirt with high neckline. Soft and stretchy " +
                 "material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!");
         windowClosingWaitDisappear();
-//        $("#id_new_comment_form").should(disappear);
         assertEquals(
                 "New comment\n" +
                         "Your comment has been added and will be available once approved by a moderator\n" +
@@ -79,7 +78,6 @@ public class TestCases extends BaseTest {
                         "OK",
                 $(".fancybox-inner").getText());
         fieldNewCommentOkBtnClick();
-
     }
 
     @Test

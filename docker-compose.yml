@@ -19,6 +19,18 @@ services:
     networks:
       - default
 
+  newman:
+    image: postman/newman:5.2.2-alpine
+    container_name: newman-automation
+    volumes:
+      - .//api-tests:/resources
+    command: >
+      run "/resources/Petstore.postman_collection.json"  \
+        --reporters cli,junit \
+        --reporter-junit-export="/resources/reports/automation-newman-report.xml"
+    networks:
+      - default
+
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     container_name: selenoid-ui
