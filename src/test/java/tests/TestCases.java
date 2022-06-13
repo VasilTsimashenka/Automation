@@ -10,7 +10,6 @@ import enums.Feature;
 import service.ui.ScreenshotService;
 
 
-import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static pages.Blouses.*;
