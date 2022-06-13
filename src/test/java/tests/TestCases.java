@@ -12,9 +12,12 @@ import service.ui.ScreenshotService;
 import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static pages.Blouses.*;
 import static pages.CreateAccountPage.createAccount;
 import static pages.MainPage.*;
+import static pages.MyAccountPage.*;
 import static pages.SignInPage.loginAs;
+import static pages.SummerDresses.*;
 import static service.Proceed_Checkout.clickConfirmOrderPaymentPageBtn;
 import static service.Proceed_Checkout.proceedCheckoutPrintedDress;
 import static service.ui.ScreenshotService.uiExecutor;
@@ -40,7 +43,7 @@ public class TestCases extends BaseTest {
         proceedCheckoutPrintedDress();
         clickConfirmOrderPaymentPageBtn();
         Assertions.assertTrue(Selenide.$(".box").getText().contains(expectedMessage));
-////        uiExecutor(Feature.EXAMPLE_2);
+//        uiExecutor(Feature.EXAMPLE_2);
     }
 
     @Test
@@ -83,39 +86,29 @@ public class TestCases extends BaseTest {
     @Test
     public void addBlouseToWishlist() {
         open("/");
-        $(".login").click();
-        $("#email").sendKeys("tests891@gmail.com");
-        $("#passwd").sendKeys("12345");
-        $("#SubmitLogin").click();
-        $("#block_top_menu > ul > li:nth-child(1) > a").hover();
-        $("#block_top_menu > ul > li:nth-child(1) > ul > li:nth-child(1) > ul > li:nth-child(2) > a").click();
-        $("div.right-block > h5 > a").hover();
-        $("a.button.lnk_view.btn.btn-default").click();
-        $("#wishlist_button").click();
-        $(".fancybox-overlay-fixed > div > div > a").click();
-        $("nav > div:nth-child(1) > a").click();
-        $(".icon-heart").click();
-        $("td:nth-child(1) > a").click();
-        $(".wishlist_delete > a").click();
-        Selenide.switchTo().alert().accept();
-        $("#block-history > table").should(disappear);
+        loginAs("tests891@gmail.com", "12345");
+        clickBlousesWomenField();
+        clickMoreBtnBlouse();
+        addWishList();
+        clickMyAccountField();
+        clickMyWishListsField();
+        clickfirstMyWishListWishListsField();
+        deleteMyWishList();
         Assertions.assertFalse($("#block-history > table").isDisplayed());
-
     }
 
     @Test
     public void checkColorSelection() {
         open("/");
-        $("#block_top_menu > ul > li:nth-child(2) > a").hover();
-        $("#block_top_menu > ul > li:nth-child(2) > ul > li:nth-child(3) > a").click();
-        $(".last-mobile-line > div > div.left-block > div > a.product_img_link").hover();
-        $(".first-item-of-mobile-line.last-mobile-line > div > div.right-block > div." +
-                "button-container > a.button.lnk_view.btn.btn-default").click();
-        $("#color_11").click();
-        $("#color_13").click();
-        $("#color_14").click();
-        $("#color_16").click();
-
-
+        selectSummerDresses();
+        selectPrintedSummerDressesWithFourColor();
+        clickBlackColorPrintedSummerDress();
+        Assertions.assertTrue(Selenide.$(".color_pick.selected").exists());
+        clickOrangeColorPrintedSummerDress();
+        Assertions.assertTrue(Selenide.$(".color_pick.selected").exists());
+        clickBlueColorPrintedSummerDress();
+        Assertions.assertTrue(Selenide.$(".color_pick.selected").exists());
+        clickYellowPrintedSummerDress();
+        Assertions.assertTrue(Selenide.$(".color_pick.selected").exists());
     }
 }

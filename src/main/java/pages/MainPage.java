@@ -31,6 +31,8 @@ public class MainPage {
     static SelenideElement sendBtn = $("#submitNewMessage");
     static SelenideElement fieldNewCommentOkBtn = $(".fancybox-opened > div > div > div > p.submit > button");
     static SelenideElement windowClosingWait = $("#id_new_comment_form");
+    static SelenideElement selectSummerDresses = $("#block_top_menu > ul > li:nth-child(2) > " +
+            "ul > li:nth-child(3) > a");
 
     public static void clickSignInButton() {
         signInButton.click();
@@ -89,4 +91,10 @@ public class MainPage {
     public static void windowClosingWaitDisappear() {
         windowClosingWait.should(disappear);
     }
+
+    public static void selectSummerDresses() {
+        hoverDresses.hover();
+        selectSummerDresses.click();
+    }
 }
+
