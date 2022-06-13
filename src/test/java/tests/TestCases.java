@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -102,6 +103,8 @@ public class TestCases extends BaseTest {
         open("/");
         selectSummerDresses();
         selectPrintedSummerDressesWithFourColor();
+        ScreenshotService.uiExecutor(Feature.EXAMPLE);
+        uiExecutor(Feature.EXAMPLE);
         clickBlackColorPrintedSummerDress();
         Assertions.assertTrue(Selenide.$(".color_pick.selected").exists());
         clickOrangeColorPrintedSummerDress();

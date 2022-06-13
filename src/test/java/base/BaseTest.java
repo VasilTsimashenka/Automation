@@ -1,5 +1,6 @@
 package base;
 
+import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeOptions;
 import model.config.TestConfig;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utils.TestConfigSettings;
 
@@ -39,6 +41,16 @@ public class BaseTest {
         Configuration.savePageSource = CONFIG.getSelenideSavePageSource();
         final DesiredCapabilities capabilities = new DesiredCapabilities();
         Configuration.remote = "http://localhost:4444/wd/hub";
+        if (Configuration.browser.equals("firefox")) {
+            capabilities.setBrowserName(Browsers.FIREFOX);
+            final FirefoxOptions options = new FirefoxOptions().addArguments("private");
+            capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
+        }
+        if (Configuration.browser.equals("chrome")) {
+            capabilities.setBrowserName(Browsers.CHROME);
+            final ChromeOptions options = new ChromeOptions().addArguments("incognito");
+            capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        }
         Configuration.fastSetValue = true;
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
