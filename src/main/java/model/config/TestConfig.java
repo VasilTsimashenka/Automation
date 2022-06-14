@@ -3,6 +3,7 @@ package model.config;
 import com.fasterxml.jackson.annotation.JacksonAnnotation;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import enums.RunType;
 import lombok.Data;
 
 @Data
@@ -34,4 +35,12 @@ public class TestConfig {
 
     @JsonProperty("selenide_save_page_source")
     private Boolean selenideSavePageSource;
+
+    @JsonProperty("run_type")
+    private String runType;
+
+    public boolean isRemoteType() {
+        return RunType.REMOTE.getValue().equalsIgnoreCase(runType);
+    }
+
 }

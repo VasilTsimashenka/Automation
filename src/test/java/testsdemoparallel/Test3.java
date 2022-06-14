@@ -1,4 +1,4 @@
-package testsdemoparallel.parallel;
+package testsdemoparallel;
 
 import org.junit.jupiter.api.Test;
 

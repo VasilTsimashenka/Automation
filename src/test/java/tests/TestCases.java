@@ -3,9 +3,9 @@ package tests;
 import base.BaseTest;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import io.qameta.allure.Owner;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import enums.Feature;
 import service.ui.ScreenshotService;
 
@@ -23,10 +23,13 @@ import static service.Proceed_Checkout.proceedCheckoutPrintedDress;
 import static service.ui.ScreenshotService.uiExecutor;
 import static utils.CreateRandomEmail.mailRandom;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestCases extends BaseTest {
 
+    @Epic("TESTING FOR http://automationpractice.com/ tasks")
     @Test
     @Owner("Tsimashenka Vasil")
+    @Order(5)
     public void orderPaymentOfGoods() {
         String expectedMessage = "Your order on My Store is complete.\n"
                 + "Please send us a bank wire with\n"
@@ -35,8 +38,6 @@ public class TestCases extends BaseTest {
                 + "- Include these details xyz\n"
                 + "- Bank name RTP\n";
         open("/");
-//        ScreenshotService.uiExecutor(Feature.EXAMPLE);
-//        uiExecutor(Feature.EXAMPLE);
         loginAs("tests891@gmail.com", "12345");
         selectCasualDresses();
         addCartPrintedDress();
@@ -46,6 +47,8 @@ public class TestCases extends BaseTest {
 //        uiExecutor(Feature.EXAMPLE_2);
     }
 
+    @Epic("TESTING FOR http://automationpractice.com/ tasks")
+    @Order(4)
     @Test
     public void sendEmailToCustomerService() {
         String expectedMessage = "Your message has been successfully sent to our team.";
@@ -62,6 +65,8 @@ public class TestCases extends BaseTest {
         Assertions.assertTrue(Selenide.$(".alert.alert-success").getText().contains(expectedMessage));
     }
 
+    @Epic("TESTING FOR http://automationpractice.com/ tasks")
+    @Order(3)
     @Test
     public void writeReview() {
         open("/");
@@ -83,6 +88,8 @@ public class TestCases extends BaseTest {
         fieldNewCommentOkBtnClick();
     }
 
+    @Epic("TESTING FOR http://automationpractice.com/ tasks")
+    @Order(2)
     @Test
     public void addBlouseToWishlist() {
         open("/");
@@ -97,6 +104,8 @@ public class TestCases extends BaseTest {
         Assertions.assertFalse($("#block-history > table").isDisplayed());
     }
 
+    @Epic("TESTING FOR http://automationpractice.com/ tasks")
+    @Order(1)
     @Test
     public void checkColorSelection() {
         open("/");

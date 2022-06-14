@@ -1,4 +1,4 @@
-package testsdemoparallel.parallel;
+package testsdemoparallel;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -7,8 +7,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@Execution(ExecutionMode.SAME_THREAD)
+//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@Execution(ExecutionMode.SAME_THREAD)
 public class Test1 {
 
     @Test
