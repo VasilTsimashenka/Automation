@@ -44,7 +44,6 @@ public class TestCases extends BaseTest {
         proceedCheckoutPrintedDress();
         clickConfirmOrderPaymentPageBtn();
         Assertions.assertTrue(Selenide.$(".box").getText().contains(expectedMessage));
-//        uiExecutor(Feature.EXAMPLE_2);
     }
 
     @Epic("TESTING FOR http://automationpractice.com/ tasks")
