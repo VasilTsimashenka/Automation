@@ -52,7 +52,6 @@ public class TestCases extends BaseTest {
     public void sendEmailToCustomerService() {
         String expectedMessage = "Your message has been successfully sent to our team.";
         open("/");
-//        uiExecutor(Feature.EXAMPLE);
         clickSignInButton();
         mailRandom(5);
         createAccount("Vasil", "Tim", "12345");
