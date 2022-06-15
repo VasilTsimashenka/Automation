@@ -19,6 +19,21 @@ services:
     networks:
       - default
 
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - 8088:8088
+      - 50000:50000
+    container_name: jenkins
+    environment:
+      - JENKINS_OPTS="--httpPort=8088"
+    volumes:
+      - "./jenkins_compose/jenkins_configuration:/var/jenkins_home"
+    networks:
+      - default
+
   newman:
     image: postman/newman:5.2.2-alpine
     container_name: newman-automation

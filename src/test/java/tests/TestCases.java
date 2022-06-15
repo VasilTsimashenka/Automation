@@ -7,6 +7,8 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import enums.Feature;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import service.ui.ScreenshotService;
 
 
@@ -24,12 +26,13 @@ import static service.ui.ScreenshotService.uiExecutor;
 import static utils.CreateRandomEmail.mailRandom;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Execution(ExecutionMode.SAME_THREAD)
 public class TestCases extends BaseTest {
 
     @Epic("TESTING FOR http://automationpractice.com/ tasks")
     @Test
     @Owner("Tsimashenka Vasil")
-    @Order(5)
+    @Order(1)
     public void orderPaymentOfGoods() {
         String expectedMessage = "Your order on My Store is complete.\n"
                 + "Please send us a bank wire with\n"
@@ -47,7 +50,7 @@ public class TestCases extends BaseTest {
     }
 
     @Epic("TESTING FOR http://automationpractice.com/ tasks")
-    @Order(4)
+    @Order(2)
     @Test
     public void sendEmailToCustomerService() {
         String expectedMessage = "Your message has been successfully sent to our team.";
@@ -87,7 +90,7 @@ public class TestCases extends BaseTest {
     }
 
     @Epic("TESTING FOR http://automationpractice.com/ tasks")
-    @Order(2)
+    @Order(4)
     @Test
     public void addBlouseToWishlist() {
         open("/");
@@ -103,7 +106,7 @@ public class TestCases extends BaseTest {
     }
 
     @Epic("TESTING FOR http://automationpractice.com/ tasks")
-    @Order(1)
+    @Order(5)
     @Test
     public void checkColorSelection() {
         open("/");
