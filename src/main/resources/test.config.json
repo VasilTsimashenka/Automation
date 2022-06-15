@@ -1,0 +1,12 @@
+{
+  "base_url" : "http://automationpractice.com/",
+  "run_type" : "remote",
+  "selenium_browser": "chrome",
+  "selenium_browser_version": "102.0",
+  "selenium_timeout": "8000",
+  "selenium_headless": "false",
+  "selenide_save_page_source": "false",
+  "selenium_vnc": "true",
+  "selenide_screenshots" : "true",
+  "selenium_browser_size" : "1366x768"
+}
