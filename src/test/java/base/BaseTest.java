@@ -40,7 +40,9 @@ public class BaseTest {
         Configuration.headless = CONFIG.getHeadless();
         Configuration.savePageSource = CONFIG.getSelenideSavePageSource();
         final DesiredCapabilities capabilities = new DesiredCapabilities();
-
+        if (CONFIG.isRemoteType()) {
+            Configuration.remote = "http://localhost:4444/wd/hub";
+        }
         if (Configuration.browser.equals("firefox")) {
             capabilities.setBrowserName(Browsers.FIREFOX);
             final FirefoxOptions options = new FirefoxOptions().addArguments("private");
