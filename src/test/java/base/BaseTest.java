@@ -52,10 +52,10 @@ public class BaseTest {
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         }
         Configuration.fastSetValue = true;
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//                "enableVNC", true,
+//                "enableVideo", true
+//        ));
         Configuration.browserCapabilities = capabilities;
 
 
